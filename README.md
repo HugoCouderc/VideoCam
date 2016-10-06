@@ -5,6 +5,5 @@ Made with love by :
   - David Boudat (DavBoudat)
   - Maxime Soubiran (MaximeS)
   - Gaël Coudurier-Curveur (Hiirome)
-  ...
 
 a [Sails](http://sailsjs.org) application
