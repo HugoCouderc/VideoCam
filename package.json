@@ -1,5 +1,5 @@
 {
-  "name": "VideoCam",
+  "name": "CatapuleCam",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -36,7 +36,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/VideoCam.git"
+    "url": "git://github.com/anonymous node/sails user/CatapuleCam.git"
   },
   "author": "anonymous node/sails user",
   "license": ""

@@ -4,6 +4,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
+
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 
 var EXPIRES_IN = '2d';
@@ -28,6 +29,7 @@ var LOCAL_STRATEGY_CONFIG = {
  */
 var JWT_STRATEGY_CONFIG = {
     secretOrKey: SECRET,
+
     jwtFromRequest: ExtractJwt.fromAuthHeader(),
 };
 
@@ -65,4 +67,6 @@ passport.use(
 );
 
 passport.use(
-    new JwtStrategy(JWT_STRATEGY_CONFIG, _onJwtStrategyAuth));
+    new JwtStrategy(JWT_STRATEGY_CONFIG, _onJwtStrategyAuth)
+);
+
