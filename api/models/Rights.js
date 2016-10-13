@@ -1,0 +1,19 @@
+//rights.js
+
+module.exports={
+  schema:true,
+  attributes:{
+    userID:{
+      model:'User',
+      required:true
+    },
+    camID:{
+      model:'Camera',
+      required:true
+    },
+    permissionlevel:{
+      type:'int',
+      required:true
+    }
+  }
+}

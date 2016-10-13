@@ -7,7 +7,7 @@
 
 module.exports = {
     schema: true,
-
+    tablename:'clients',
     attributes: {
         username: {
             type: 'string',
@@ -32,6 +32,10 @@ module.exports = {
             type: 'string',
             defaultsTo: ''
         },
+        isAdmin:{
+          type: 'boolean',
+          defaultsTo:false
+        },
 
 
         toJSON: function () {
@@ -53,4 +57,3 @@ module.exports = {
     }
 
 };
-
