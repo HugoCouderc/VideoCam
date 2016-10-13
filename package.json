@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "angular": "^1.5.8",
     "bcrypt-nodejs": "0.0.3",
     "ejs": "2.3.4",
     "grunt": "1.0.1",
@@ -27,6 +28,7 @@
     "rc": "1.0.1",
     "sails": "~0.12.7",
     "sails-disk": "~0.10.9",
+    "sails-hook-autoreload": "^0.13.2",
     "sails-mysql": "^0.11.5"
   },
   "scripts": {

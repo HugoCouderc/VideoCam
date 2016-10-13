@@ -6,11 +6,11 @@ module.exports={
   attributes:{
     name:{
       type:'string',
+      unique:true,
       required: true
     },
     owner:{
       model:'User',
-      unique:true,
       required:true
     },
     adress:{
