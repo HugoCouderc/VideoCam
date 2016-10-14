@@ -35,10 +35,14 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  /*'/users': {
+    view: 'users'
+  },*/
 
   'post /auth/signin'  : 'AuthController.signin',
   'post /auth/signup'  : 'AuthController.signup',
   'get /user/me'       :  'UserController.me',
+  'get /getuser/:id' : 'UserController.getUser',
 
 
   /***************************************************************************
