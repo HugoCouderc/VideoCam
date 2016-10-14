@@ -38,6 +38,13 @@ module.exports.routes = {
   /*'/users': {
     view: 'users'
   },*/
+  '/addcamera': {
+    view:'addcamera'
+  },
+  '/personalcameras':
+  {
+      view:'personalcameras'
+  },
 
   'post /auth/signin'  : 'AuthController.signin',
   'post /auth/signup'  : 'AuthController.signup',
