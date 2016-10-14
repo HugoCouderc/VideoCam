@@ -12,7 +12,7 @@ module.exports={
       required:true
     },
     permissionlevel:{
-      type:'int',
+      type:'integer',
       required:true
     }
   }
