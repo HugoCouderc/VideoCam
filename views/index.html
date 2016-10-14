@@ -1,0 +1,30 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="">
+	<script src="http://localhost:1337/js/dependencies/sails.io.js"></script>
+	<script type="text/javascript">
+		io.sails.url='http://localhost:1337';
+	</script>
+</head>
+<body>
+	<ul id="list"></ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmulJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	io.socket.get("http://localhost:1337/client",function(res,jwres){
+		for(i=;i<res.length;i++)
+		{
+			addClient(res[i])
+		}
+	})
+	io.socket.on('client',function(msg)){
+		console.log(msg);
+		addClient(msh.data;)
+	}
+	function addClient(object)
+	{
+		$('#list').append('<li>'+object.name+'- ')+object.email=' - '+object.createdAt+'</li>');
+	}
+</script>
+</html>
