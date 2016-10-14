@@ -35,9 +35,9 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  /*'/users': {
-    view: 'users'
-  },*/
+  '/rightManager': {
+    view: 'rightManager'
+  },
   '/addcamera': {
     view:'addcamera'
   },
