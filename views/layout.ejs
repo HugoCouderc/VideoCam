@@ -56,7 +56,13 @@
 		</div>
 	</nav>
 
-	<div class="container"><%- body %></div>
+	<div class="container">
+		<noscript>
+			<p class="bg-danger">Pour utiliser ce site, il est nécessaire
+				d'activer le javascript dans votre navigateur</p>
+		</noscript>
+		<%- body %>
+	</div>
 
 	<% if (!false) { %>
 	<div class="modal fade" tabindex="-1" role="dialog"
