@@ -7,57 +7,12 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
-<!--
-        Stylesheets and Preprocessors
-        ==============================
-
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-
 <!--STYLES-->
 <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/styles/bootstrap.min.css">
 <link rel="stylesheet" href="/styles/importer.css">
 <link rel="stylesheet" href="/styles/videocam.css">
 <!--STYLES END-->
-
-<!--
-
-      Client-side Javascript
-      ========================
-
-      You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
-      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-      By default, files in your `assets/js` folder are included here
-      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
-      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
-      and concatenated into a single file.
-
-      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-      For example, here are a few things you could do:
-
-          + Change the order of your scripts
-          + Import scripts from other directories
-          + Use a different preprocessor, like TypeScript
-
-    -->
 
 <!--SCRIPTS-->
 <script src="/js/dependencies/sails.io.js"></script>
@@ -82,21 +37,60 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<% if (true) { %>
-					<ul class="nav navbar-nav">
-						<li><a href="/personalcameras">Mes caméras</a></li>
-					</ul>
-				<%}%>
+				<% if (false) { %>
+				<ul class="nav navbar-nav">
+					<li><a href="/personalcameras">Mes caméras</a></li>
+				</ul>
 				<div class="nav navbar-nav navbar-right">
-					<button type="button" class="btn btn-default navbar-btn"><%=true
-						? 'Se déconnecter' : 'Se connecter'%></button>
+					<button type="button" class="btn btn-default navbar-btn">Se
+						déconnecter</button>
 				</div>
+				<%} else { %>
+				<div class="nav navbar-nav navbar-right">
+					<button type="button" class="btn btn-default navbar-btn"
+						data-toggle="modal" data-target="#connectionModal">Se
+						connecter</button>
+				</div>
+				<% } %>
 			</div>
 		</div>
 	</nav>
 
 	<div class="container"><%- body %></div>
 
+	<% if (!false) { %>
+	<div class="modal fade" tabindex="-1" role="dialog"
+		id="connectionModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Se connecter</h4>
+				</div>
+				<form>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="email">Adresse email</label> <input type="email"
+								class="form-control" id="email" placeholder="Email" name="email">
+						</div>
+						<div class="form-group">
+							<label for="password">Mot de passe</label> <input type="password"
+								class="form-control" id="password" placeholder="Mot de passe"
+								name="password">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						<button type="button" class="btn btn-primary" type="submit">Connexion</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<% } %>
 	<!--
         Client-side Templates
         ========================
@@ -119,7 +113,7 @@
     -->
 
 	<!--TEMPLATES-->
-	
+
 	<!--TEMPLATES END-->
 
 </body>
