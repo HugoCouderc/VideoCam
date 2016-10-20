@@ -44,10 +44,9 @@ module.exports.routes = {
   '/personalcameras': {
       view:'personalcameras'
   },
-  '/registeruser': {
+  '/signup': {
 	  view : 'registeruser'
   },
-
   'post /auth/signin'  : 'AuthController.signin',
   'post /auth/signup'  : 'AuthController.signup',
   'get /user/me'       :  'UserController.me',
