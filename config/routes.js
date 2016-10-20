@@ -35,15 +35,17 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  /*'/users': {
-    view: 'users'
-  },*/
+  '/rightmanager': {
+    view: 'rightmanager'
+  },
   '/addcamera': {
     view:'addcamera'
   },
-  '/personalcameras':
-  {
+  '/personalcameras': {
       view:'personalcameras'
+  },
+  '/registeruser': {
+	  view : 'registeruser'
   },
 
   'post /auth/signin'  : 'AuthController.signin',

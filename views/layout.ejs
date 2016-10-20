@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%=typeof title == 'undefined' ? 'VideoCam' : title%></title>
+<head>
+<title><%=typeof title == 'undefined' ? 'VideoCam' : title%></title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Viewport mobile tag for sensible mobile support -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-    <!--
+<!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -28,13 +29,14 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <!--STYLES END-->
-    
-        <!--
+<!--STYLES-->
+<link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/styles/bootstrap.min.css">
+<link rel="stylesheet" href="/styles/importer.css">
+<link rel="stylesheet" href="/styles/videocam.css">
+<!--STYLES END-->
+
+<!--
 
       Client-side Javascript
       ========================
@@ -57,16 +59,16 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/jQuery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <!--SCRIPTS END-->
-    
-  </head>
-  
-  <body>
-  	<nav class="navbar navbar-default">
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/dependencies/jQuery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!--SCRIPTS END-->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -78,19 +80,24 @@
 				</button>
 				<a class="navbar-brand" href="/">VideoCam</a>
 			</div>
-		</div>
-		
-		<div class="collapse navbar-collapse" id="navbar-collapse">
-     		<ul class="nav navbar-nav">
-     		</ul>
-     	</div>
-	</nav>
-  
-  	<div class="container">
-    	<%- body %>
-	</div>
 
-    <!--
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<% if (true) { %>
+					<ul class="nav navbar-nav">
+						<li><a href="/personalcameras">Mes caméras</a></li>
+					</ul>
+				<%}%>
+				<div class="nav navbar-nav navbar-right">
+					<button type="button" class="btn btn-default navbar-btn"><%=true
+						? 'Se déconnecter' : 'Se connecter'%></button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container"><%- body %></div>
+
+	<!--
         Client-side Templates
         ========================
 
@@ -111,9 +118,9 @@
               stringfile before they're served.
     -->
 
-    <!--TEMPLATES-->
-    <script type="text/javascript" src="/jst.js"></script>
-    <!--TEMPLATES END-->
+	<!--TEMPLATES-->
+	
+	<!--TEMPLATES END-->
 
-  </body>
+</body>
 </html>
