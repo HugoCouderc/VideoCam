@@ -1,7 +1,68 @@
-<form>
-	<label>Nom</label><br>
-	<input type="text" name="name"><br>
-	<label>Adresse</label><br>
-	<input type="text" name="address"><br>
-	<input type="submit" value="Envoyer">
-</form>
+<!--<div ng-controller="addcamera">
+	<form novalidate class="simple-form">
+		Nom :<br>
+		<input type="text" name="name" ng-model="camera.name"><br>
+		Adresse :<br>
+		<input type="text" name="address" ng-model="camera.adress"><br>
+
+    <input type="button" ng-click="reset()" value="Reset" />
+		<input type="submit" value="Envoyer" ng-click="send(camera)">
+	</form>
+</div>
+
+<pre>camera = {{camera | json}} </pre>
+<pre>master = {{master | json}}</pre>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+	angular.module('Thisapp',[])
+		.controller('addcamera',['$scope', function($scope){
+			$scope.master={name:"bob",};
+			$scope.send=function(camera){
+				console.log(camera);
+				$scope.master=angular.copy(camera);
+			};
+
+      		$scope.update = function(camera) {
+      			console.log("update");
+     	   		$scope.master = angular.copy(camera);
+	      	};
+
+			$scope.reset=function(){
+				console.log("reset");
+				$scope.camera=angular.copy($scope.master);
+			};
+			$scope.reset();
+		}]);
+</script>-->
+
+<div ng-controller="addcamera">
+  <form novalidate class="simple-form">
+    Nom: <input type="text" ng-model="camera.name" /><br />
+    Adresse: <input type="text" ng-model="camera.adress" /><br />
+    <input type="button" ng-click="reset()" value="Reset" />
+    <input type="submit" ng-click="send(camera)" value="Envoyer" />
+  </form>
+  <pre>camera = {{camera | json}}</pre>
+  <pre>master = {{master | json}}</pre>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+	angular.module('Thisapp', [])
+	  .controller('addcamera', ['$scope', function($scope) {
+    	$scope.master = {};
+
+    	$scope.update = function(camera) {
+       	$scope.master = angular.copy(camera);
+     	};
+   		$scope.send=function(camera){
+			console.log(camera);
+			$scope.master=angular.copy(camera);
+			};
+
+     	$scope.reset = function() {
+      		$scope.camera = angular.copy($scope.master);
+      	};
+      $scope.reset();
+    }]);
+</script>
