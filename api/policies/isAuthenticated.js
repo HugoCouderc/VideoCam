@@ -12,7 +12,7 @@ module.exports = function (req,res,next)
         if(!user)
             return res.unauthorized(null,info)
         req.user = user;
-        next()
+        next();
 
     })(req, res)
 }
