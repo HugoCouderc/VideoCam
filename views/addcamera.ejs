@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--<div ng-controller="addcamera">
 	<form novalidate class="simple-form">
 		Nom :<br>
@@ -50,14 +51,9 @@
 <script>
 	angular.module('Thisapp', [])
 	  .controller('addcamera', ['$scope', function($scope) {
-    	$scope.master = {};
-
-    	$scope.update = function(camera) {
-       	$scope.master = angular.copy(camera);
-     	};
    		$scope.send=function(camera){
 			console.log(camera);
-			$scope.master=angular.copy(camera);
+			return $http.post("localhost:1337/camera",$scope.camera);
 			};
 
      	$scope.reset = function() {

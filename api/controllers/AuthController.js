@@ -6,42 +6,42 @@
  */
 
 
-var passport = require ('passport');
+ var passport = require ('passport');
 
-function onPassportAuth(req, res, error, user, info)
-{
-    if(error) return res.serverError(error);
-    if(!user) return res.unauthorized(null,info);
+ function onPassportAuth(req, res, error, user, info)
+ {
+     if(error) return res.serverError(error);
+  
+     if(!user) return res.unauthorized(null,info);
 
-    return res.ok (
-        {
-            token : SecurityService.createToken(user),
-            user:user
-        }
-    )
-}
+     return res.ok (
+         {
+             token : SecurityService.createToken(user),
+             user:user
+         }
+     )
+ }
 
 
-module.exports = {
+ module.exports = {
 
-    signin: function (req,res)
-    {
-        passport.authenticate('local',
-        onPassportAuth.bind(this,req,res))(req,res);
-    },
-    signup : function (req,res) {
-        User
-            .create(_.omit(req.allParams(),'id'))
-            .then(function(user){
-                return {
-                    user: user,
-                    token: SecurityService.createToken(user)
-                }
+     signin: function (req,res)
+     {
+         passport.authenticate('local',
+         onPassportAuth.bind(this,req,res))(req,res);
+     },
+     signup : function (req,res) {
+         User
+             .create(_.omit(req.allParams(),'id'))
+             .then(function(user){
+                 return {
+                     user: user,
+                     token: SecurityService.createToken(user)
+                 }
 
-            })
-            .then(res.created)
-            .catch(res.serverError)
-    }
-	
-};
+             })
+             .then(res.created)
+             .catch(res.serverError)
+     }
 
+ };
