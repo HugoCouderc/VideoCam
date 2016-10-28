@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--<div ng-controller="addcamera">
 	<form novalidate class="simple-form">
 		Nom :<br>
@@ -50,10 +49,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script>
 	angular.module('Thisapp', [])
-	  .controller('addcamera', ['$scope', function($scope) {
+	  .controller('addcamera', ['$scope','$http', function($scope,$http) {
    		$scope.send=function(camera){
 			console.log(camera);
-			return $http.post("localhost:1337/camera",$scope.camera);
+			$http.post("http://localhost:1337/camera",$scope.camera);
 			};
 
      	$scope.reset = function() {
