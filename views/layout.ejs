@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<% if (false) { %>
+				<% if (req.session.me) { %>
 				<ul class="nav navbar-nav">
 					<li><a href="/personalcameras">Mes caméras</a></li>
 				</ul>
@@ -64,7 +64,7 @@
 		<%- body %>
 	</div>
 
-	<% if (!false) { %>
+	<% if (!req.user) { %>
 	<div class="modal fade" tabindex="-1" role="dialog"
 		id="connectionModal">
 		<div class="modal-dialog" role="document">
@@ -76,27 +76,59 @@
 					</button>
 					<h4 class="modal-title">Se connecter</h4>
 				</div>
-				<form>
+				<form id="loginForm" method="post" action="/auth/signin">
 					<div class="modal-body">
+						<div id="errorMsg" class="alert alert-danger collapse" role="alert">
+							<p>Impossible de vous identifier vérifiez le mot de passe / login</p>
+						</div>
 						<div class="form-group">
-							<label for="email">Adresse email</label> <input type="email"
-								class="form-control" id="email" placeholder="Email" name="email">
+							<label for="identifier">Adresse email/Pseudo</label> <input
+								type="email" class="form-control" id="identifier"
+								placeholder="Email" name="identifier" required="required">
 						</div>
 						<div class="form-group">
 							<label for="password">Mot de passe</label> <input type="password"
 								class="form-control" id="password" placeholder="Mot de passe"
-								name="password">
+								name="password" required="required">
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 						<a type="button" class="btn btn-warning" href="/signup">Inscription</a>
-						<button type="button" class="btn btn-primary" type="submit">Connexion</button>
+						<button class="btn btn-primary" type="submit">Connexion</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#loginForm').on('submit', function(e) {
+			$("#errorMsg").hide();
+			e.preventDefault();
+			$.ajax(	{
+				url : $(this).attr('action'),
+				type : $(this).attr('method'),
+				data : $(this).serialize(),
+				dataType: 'json',
+				success: function(json) {
+					var expDate = new Date();
+					expDate.setDate(expDate.getDate() + 2);
+					document.cookie = "access_token=" + json.token + ";expires=" + expDate.toUTCString() + ";";
+					location.reload();
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					if (jqXHR.status == 401)
+						$("#errorMsg").show();
+					else
+						alert("Une erreur interne est survenue pendant la tentative de connexion. Veuillez réessayer ultérieurement");	
+				}
+			});
+		});
+	});
+	</script>
+
 	<% } %>
 	<!--
         Client-side Templates
