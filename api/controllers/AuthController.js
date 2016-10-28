@@ -39,7 +39,7 @@ module.exports = {
             .create(_.omit(req.allParams(),'id'))
             .then(function(user){
                 return {
-                    user: user,
+                    user: SecurityService.createToken(user),
                     token: token
                 }
 
