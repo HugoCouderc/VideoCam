@@ -52,6 +52,11 @@ module.exports.routes = {
   'get /user/me'       :  'UserController.me',
   'get /getuser/:id' : 'UserController.getUser',
 
+  'post /api/findUser'     : 'UserController.findUser',
+  'post /api/checkRights'  : 'RightsController.checkRights',
+  'post /api/myCams'       : 'CameraController.myCameras',
+  'post /api/myCamsRights' : 'CameraController.myCamRights',
+
 
   /***************************************************************************
   *                                                                          *
