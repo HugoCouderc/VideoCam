@@ -13,9 +13,14 @@ function onPassportAuth(req, res, error, user, info)
     if(error) return res.serverError(error);
     if(!user) return res.unauthorized(null,info);
 
+	var expDate = new Date();
+	expDate.setDate(expDate.getDate() + 2);
+    token = SecurityService.createToken(user);
+    res.cookie("access_token", token, { httpOnly: true, expires: expDate })
+    
     return res.ok (
         {
-            token : SecurityService.createToken(user),
+            token : token,
             user:user
         }
     )
@@ -35,7 +40,7 @@ module.exports = {
             .then(function(user){
                 return {
                     user: user,
-                    token: SecurityService.createToken(user)
+                    token: token
                 }
 
             })

@@ -114,9 +114,6 @@
 				data : $(this).serialize(),
 				dataType: 'json',
 				success: function(json) {
-					var expDate = new Date();
-					expDate.setDate(expDate.getDate() + 2);
-					document.cookie = "access_token=" + json.token + ";expires=" + expDate.toUTCString() + ";";
 					location.reload();
 				},
 				error : function(jqXHR, textStatus, errorThrown) {
