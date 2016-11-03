@@ -37,15 +37,14 @@
 </script>-->
 
 <div ng-controller="addcamera">
-  <form novalidate class="simple-form">
-    Nom: <input type="text" ng-model="camera.name" /><br />
-    Adresse: <input type="text" ng-model="camera.adress" /><br />
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input type="submit" ng-click="send(camera)" value="Envoyer" />
-  </form>
-  <pre>camera = {{camera | json}}</pre>
-  <pre>master = {{master | json}}</pre>
+	<form novalidate class="simple-form">
+		Nom: <input type="text" ng-model="camera.name" /><br /> Adresse: <input
+			type="text" ng-model="camera.adress" /><br /> <input type="button"
+			ng-click="reset()" value="Reset" /> <input type="submit"
+			ng-click="send(camera)" value="Envoyer" />
+	</form>
 </div>
+
 <script>
 	angular.module('Thisapp', [])
 	  .controller('addcamera', ['$scope','$http', function($scope,$http) {
