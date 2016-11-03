@@ -57,6 +57,7 @@ module.exports.routes = {
   'post /api/checkRights'  : 'RightsController.checkRights',
   'post /api/myCams'       : 'CameraController.myCameras',
   'post /api/myCamsRights' : 'CameraController.myCamRights',
+  'get user/subscribe' : 'UserController.subscribe'
 
 
   /***************************************************************************

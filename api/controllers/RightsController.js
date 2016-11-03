@@ -18,6 +18,14 @@ module.exports = {
       }
     );
 
+  },
+
+  subscribe: function(req,res)
+  {
+    right.subscribe(req.socket);
+
+    right.subscribe(req.socket,user);
   }
+
 
 }
