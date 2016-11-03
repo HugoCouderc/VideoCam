@@ -16,7 +16,7 @@
  				console.log(list);
  				return list;
  			}
- 		);
+ 			);
  	},
 
  	myCamRights: function(req,res)
@@ -32,6 +32,7 @@
  					cams.push(list[i].camID);
  					perms.push(list[i].permissionlevel);
  				}
+
  				Camera.find(
  					{id : cams},
  					function(err, list2)
@@ -46,9 +47,9 @@
  					}
  				);
 
-     	}
+ 			}
  		);
- 	}
+ 	},
 
 
 
@@ -64,5 +65,7 @@
  			return camera;
  		}))
  	}
+
+ 	
 
  };

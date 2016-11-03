@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title><%=typeof title == 'undefined' ? 'VideoCam' : title%></title>
-
+<html ng-app="Thisapp">
+  <head>
+    <title><%=typeof title == 'undefined' ? 'VideoCam' : title%></title>
 <!-- Viewport mobile tag for sensible mobile support -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -58,13 +57,12 @@
           + Use a different preprocessor, like TypeScript
 
     -->
-
-<!--SCRIPTS-->
-<script src="/js/dependencies/sails.io.js"></script>
-<script src="/js/dependencies/jQuery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<!--SCRIPTS END-->
-
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/angular.js"></script>
+    <script src="/js/dependencies/jQuery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!--SCRIPTS END-->s
 </head>
 
 <body>
@@ -117,7 +115,6 @@
             + Internationalize your client-side templates using a server-side
               stringfile before they're served.
     -->
-
 	<!--TEMPLATES-->
 	
 	<!--TEMPLATES END-->

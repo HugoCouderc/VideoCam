@@ -44,7 +44,7 @@ module.exports.connections = {
      adapter: 'sails-mysql',
      host: 'nevah.fr',
      user: 'VideoCam_User', //optional
-     password: 'pw25W2gB9D2GTk7v', //optional
+     password: 'fQ{4T3e#Aez?W34:', //optional
      database: 'VideoCam' //optional
    },
 
