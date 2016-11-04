@@ -39,13 +39,15 @@ module.exports = {
             .create(_.omit(req.allParams(),'id'))
             .then(function(user){
                 return {
-                    user: SecurityService.createToken(user),
-                    token: token
+                    user: user,
+                    token: SecurityService.createToken(user)
                 }
 
             })
             .then(res.created)
             .catch(res.serverError)
-    }
-	
+    },
+	signout : function (req, res) {
+		res.cookie("access_token", "", { httpOnly: true, expires: new Date(0) })
+	}
 };
