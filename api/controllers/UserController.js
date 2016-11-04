@@ -39,15 +39,4 @@
  			}
  		);
  	},
-
- 	subscribe: function(req,res)
- 	{
- 		User.subscribe(req.socket);
-
- 		User.subscribe(req.socket,user);
- 	}
-
-
- 	
-
  };
