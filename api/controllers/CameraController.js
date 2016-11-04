@@ -9,12 +9,14 @@
 
  	myCameras: function (req,res)
  	{
+ 		console.log(req.user.id);
  		Camera.find(
  			{owner: req.user.id},
  			function(err, list)
- 			{
- 				return res.json(list);
- 			}
+	 			{
+
+	 				return res.json(list);
+	 			}
  			);
  	},
 
