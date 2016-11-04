@@ -1,14 +1,18 @@
 <h2>Mes caméras</h2>
 
-<table class="table table-hover">
+<table class="table table-hover" id="tableCamera">
 	<tr>
 		<th>Nom</th>
 		<th>Propriétaire</th>
 		<th>Adresse</th>
+		<th>Action</th>
 	</tr>
+	<% for(var i=0; i < cameras.length; i++) {%>
 	<tr>
-		<td>Camera 1</td>
-		<td>kjgrnhjre</td>
-		<td>grjhbe</td>
+	   	<td><%= cameras[i].name %></td>
+	   	<td><%= cameras[i].owner %></td>
+	   	<td><%= cameras[i].name %></td>
+	   	<td><button>Valider</button></td>
 	</tr>
+	<% } %>
 </table>

@@ -30,7 +30,16 @@ var LOCAL_STRATEGY_CONFIG = {
 var JWT_STRATEGY_CONFIG = {
     secretOrKey: SECRET,
 
-    jwtFromRequest: ExtractJwt.fromAuthHeader(),
+    jwtFromRequest: ExtractJwt.fromExtractors([ExtractJwt.fromAuthHeader(), cookieExtractor]),
+};
+
+function cookieExtractor(req) {
+    var token = null;
+    if (req && req.cookies)
+    {
+        token = req.cookies['access_token'];
+    }
+    return token;
 };
 
 /**

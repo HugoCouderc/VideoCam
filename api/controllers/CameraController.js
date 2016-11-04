@@ -10,11 +10,10 @@
  	myCameras: function (req,res)
  	{
  		Camera.find(
- 			{owner: req.param('owner')},
+ 			{owner: req.user.id},
  			function(err, list)
  			{
- 				console.log(list);
- 				return list;
+ 				return res.json(list);
  			}
  			);
  	},
@@ -64,8 +63,13 @@
  			}
  			return camera;
  		}))
- 	}
+ 	},
 
- 	
+ 	myCamRightsView : function(req, res) {
+ 		Camera.find({owner: req.user.id}, function (err, list) {
+ 			console.log(list);
+ 			return res.view('personalcameras', {cameras : list});
+ 		});
+	}
 
  };
