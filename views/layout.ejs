@@ -38,9 +38,9 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<% if (req.session.me) { %>
+				<% if (user) { %>
 				<ul class="nav navbar-nav">
-					<li><a href="/personalcameras">Mes caméras</a></li>
+					<li><a href="/cameras">Mes caméras</a></li>
 				</ul>
 				<div class="nav navbar-nav navbar-right">
 					<button type="button" class="btn btn-default navbar-btn">Se
@@ -57,7 +57,7 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container-fluid">
 		<noscript>
 			<p class="bg-danger">Pour utiliser ce site, il est nécessaire
 				d'activer le javascript dans votre navigateur</p>
@@ -65,7 +65,8 @@
 		<%- body %>
 	</div>
 
-	<% if (!req.user) { %>
+	<% if (!user) { %>
+	<!-- Connection modal -->
 	<div class="modal fade" tabindex="-1" role="dialog"
 		id="connectionModal">
 		<div class="modal-dialog" role="document">
@@ -79,8 +80,10 @@
 				</div>
 				<form id="loginForm" method="post" action="/auth/signin">
 					<div class="modal-body">
-						<div id="errorMsg" class="alert alert-danger collapse" role="alert">
-							<p>Impossible de vous identifier vérifiez le mot de passe / login</p>
+						<div id="errorMsg" class="alert alert-danger collapse"
+							role="alert">
+							<p>Impossible de vous identifier vérifiez le mot de passe /
+								login</p>
 						</div>
 						<div class="form-group">
 							<label for="identifier">Adresse email/Pseudo</label> <input
@@ -95,7 +98,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						<a type="button" class="btn btn-warning" href="/signup">Inscription</a>
+						<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#signupModal">Inscription</button>
 						<button class="btn btn-primary" type="submit">Connexion</button>
 					</div>
 				</form>
@@ -103,7 +106,48 @@
 		</div>
 	</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<!-- Signup modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="signupModal"
+		ng-controller="adduser">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Inscription</h4>
+				</div>
+				<form novalidate>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="username">Nom D'utilisateur :</label> <input
+								type="text" class="form-control" id="username" name="username"
+								ng-model="user.username">
+						</div>
+						<div class="form-group">
+							<label for="email">Adresse E-mail :</label> <input type="email"
+								class="form-control" id="email" name="email"
+								ng-model="user.email">
+						</div>
+						<div class="form-group">
+							<label for="password1">Mot de passe :</label> <input
+								type="password" class="form-control" id="password1"
+								ng-model="user.password">
+						</div>
+						<!-- <div class="form-group">
+							<label for="password2">Confirmer le mot de passe :</label> <input
+							type="password" class="form-control" id="password2">
+						</div> -->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+						<button class="btn btn-primary" type="submit" ng-click="send(user)">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -127,6 +171,19 @@
 			});
 		});
 	});
+	
+	angular.module('Thisapp', [])
+	  .controller('adduser', ['$scope','$http', function($scope,$http) {
+		$scope.send=function(user){
+			console.log(user);
+			$http.post("http://127.0.0.1:1337/auth/signup",$scope.user);
+			};
+
+		$scope.reset = function() {
+			$scope.user = angular.copy($scope.master);
+		};
+	  $scope.reset();
+	}]);
 	</script>
 
 	<% } %>
