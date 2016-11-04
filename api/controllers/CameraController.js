@@ -7,13 +7,16 @@
 
 module.exports = {
 
-	myCameras : function(req, res) {
-		Camera.find({
-			owner : req.user.id
-		}, function(err, list) {
-			return res.json(list);
-		});
-	},
+ 	myCameras: function (req,res)
+ 	{
+ 		Camera.find(
+ 			{owner: req.user.id},
+ 			function(err, list)
+	 			{
+	 				return res.json(list);
+	 			}
+ 			);
+ 	},
 
 	myCamRights : function(req, res) {
 		Rights.find({

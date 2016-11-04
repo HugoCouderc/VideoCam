@@ -30,7 +30,9 @@
     "sails": "~0.12.7",
     "sails-disk": "~0.10.9",
     "sails-hook-autoreload": "^0.13.2",
-    "sails-mysql": "^0.11.5"
+    "sails-mysql": "^0.11.5",
+    "sails.io.js": "^0.14.0",
+    "socket.io": "^1.5.1"
   },
   "scripts": {
     "debug": "node debug app.js",
