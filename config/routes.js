@@ -32,31 +32,23 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+  '/': 'HomepageController.homepageView',
   '/rightmanager': {
     view: 'rightmanager'
   },
   '/addcamera': {
     view:'addcamera'
   },
-  '/personalcameras': {
-      view:'personalcameras'
-  },
-  '/signup': {
-	  view : 'registeruser'
-  },
-  
+
   'post /auth/signin'  : 'AuthController.signin',
   'post /auth/signup'  : 'AuthController.signup',
   'get /user/me'       :  'UserController.me',
   'get /getuser/:id' : 'UserController.getUser',
 
-  'post /api/findUser'     : 'UserController.findUser',
-  'post /api/checkRights'  : 'RightsController.checkRights',
-  'post /api/myCams'       : 'CameraController.myCameras',
-  'post /api/myCamsRights' : 'CameraController.myCamRights',
+  '/api/findUser'     : 'UserController.findUser',
+  '/api/checkRights'  : 'RightsController.checkRights',
+  '/api/myCams'       : 'CameraController.myCameras',
+  '/api/myCamsRights' : 'CameraController.myCamRights',
   '/cameras' : 'CameraController.myCamRightsView',
   'post /api/changeAngle' : 'CameraController.changeAngle',
   'post /api/addRights' : 'RightsController.addRights',
