@@ -85,8 +85,8 @@
 						console.log("problem on camera angle update");
 						return;
 					}
-					console.log("good");
-					return res.ok;
+					console.log(camera.angle);
+					return res.ok();
 					})
 				}
 			);

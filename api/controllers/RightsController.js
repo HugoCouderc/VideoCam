@@ -22,6 +22,12 @@ module.exports = {
 
   addRights: function(req,res)
   {
+    Rights.create({userID:req.param('userID')},{camID:req.param('camID')},{permissionlevel:req.param('permissionlevel')})
+      .exec(function afterwards(err,myRight){
+          if(err){console.log(err);}
+          console.log(myRight);
+          return res.ok();
+      });
 
   },
 }
