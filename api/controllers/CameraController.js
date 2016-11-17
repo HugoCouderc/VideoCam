@@ -72,6 +72,15 @@
  			console.log(list);
  			return res.view('personalcameras', {cameras : list});
  		});
+	},
+
+	changeAngle: function(req,res){
+		if(req.camera.angle<=180 || req.camera.angle>=0){
+			Camera.update({req.camera.angle},function (err,list){
+
+			})	
+		}
+		
 	}
 
  };

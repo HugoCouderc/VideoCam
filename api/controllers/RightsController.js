@@ -19,4 +19,9 @@ module.exports = {
     );
 
   },
+
+  addRights: function(req,res)
+  {
+
+  },
 }

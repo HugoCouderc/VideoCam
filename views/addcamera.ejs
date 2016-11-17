@@ -50,6 +50,7 @@
 	  .controller('addcamera', ['$scope','$http', function($scope,$http) {
    		$scope.send=function(camera){
 			console.log(camera);
+			camera.angle=90;
 			$http.post("http://localhost:1337/camera",$scope.camera);
 			};
 
