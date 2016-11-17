@@ -16,6 +16,10 @@ module.exports={
     adress:{
       type:'string',
       required:true
+    },
+    angle:{
+      type:'int',
+      required:true
     }
   }
 }

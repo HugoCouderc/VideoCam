@@ -55,15 +55,33 @@ module.exports = {
 		}))
 	},
 
-	myCamRightsView : function(req, res) {
-		Camera.find({
-			owner : req.user.id
-		}, function(err, list) {
-			return res.view('personalcameras', {
-				cameras : list,
-				user : req.user
-			});
-		});
+
+ 	myCamRightsView : function(req, res) {
+ 		Camera.find({owner: req.user.id}, function (err, list) {
+ 			console.log(list);
+ 			return res.view('personalcameras', {cameras : list});
+ 		});
+	},
+
+	changeAngle: function(req,res){
+		if(req.param('angle')<=180 || req.param('angle')>=0){
+			Camera.findOne({id:req.param('id')},function(err,camera){
+				
+				if(err){console.log(err);}
+				Camera.update({id:req.param('id')},{angle:req.param('angle')}).exec(function afterwards(err,updated){
+					if(err)
+					{
+						console.log("problem on camera angle update");
+						return;
+					}
+					console.log("good");
+					return res.ok;
+					})
+				}
+			);
+			
+				
+		}
 	}
 
 };
