@@ -17,6 +17,5 @@ module.exports = {
 	addcameraView : function (req,res) {
 		return res.view('addcamera', {user : req.user});
 	}
-
 };
 

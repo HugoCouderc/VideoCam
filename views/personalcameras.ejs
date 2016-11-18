@@ -32,7 +32,7 @@ angular.module('Thisapp', [])
 	});
 	socket.on('rights',function(data){
 		
-		$http.post("http://localhost:1337/api/myCams").then(function(res){
+		$http.get("http://localhost:1337/api/myCams").then(function(res){
 			$scope.cameras=res.data;
 			console.log(res.data);
 		});
