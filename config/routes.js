@@ -52,6 +52,7 @@ module.exports.routes = {
   '/cameras' : 'CameraController.myCamRightsView',
   'post /api/changeAngle' : 'CameraController.changeAngle',
   'post /api/addRights' : 'RightsController.addRights',
+  '/api/checkEveryRitghs' : 'RightsController.checkEveryRights',
 
   /***************************************************************************
   *                                                                          *
