@@ -21,7 +21,7 @@ module.exports.policies = {
 	AuthController : {
 		'*' : true
 	},
-	HomepageController : {
+	ViewController : {
 		'*' : true
 	}
 };
