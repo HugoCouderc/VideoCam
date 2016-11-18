@@ -32,7 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'HomepageController.homepageView',
+  '/': 'ViewController.homepageView',
   '/rightmanager': {
     view: 'rightmanager'
   },
