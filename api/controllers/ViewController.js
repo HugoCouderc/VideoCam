@@ -7,7 +7,16 @@
 
 module.exports = {
 	homepageView : function (req,res) {
-		res.view('homepage', {user : req.user});
+		return res.view('homepage', {user : req.user});
+	},
+
+	rightmanagerView : function (req,res) {
+		return res.view('rightmanager', {user : req.user});
+	},
+	
+	addcameraView : function (req,res) {
+		return res.view('addcamera', {user : req.user});
 	}
+
 };
 

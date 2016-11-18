@@ -32,13 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'HomepageController.homepageView',
-  '/rightmanager': {
-    view: 'rightmanager'
-  },
-  '/addcamera': {
-    view:'addcamera'
-  },
+  '/': 'ViewController.homepageView',
+  '/rightmanager': 'ViewController.rightmanagerView',
+  '/addcamera': 'ViewController.addcameraView',
 
   'post /auth/signin'  : 'AuthController.signin',
   'post /auth/signup'  : 'AuthController.signup',

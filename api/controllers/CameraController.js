@@ -63,6 +63,7 @@ module.exports = {
  		});
 	},
 
+	//https://github.com/EmergingTechnologyAdvisors/node-serialport/blob/5.0.0-beta2/README.md#ubuntudebian-linux
 	changeAngle: function(req,res){
 		if(req.param('angle')<=180 || req.param('angle')>=0){
 			Camera.findOne({id:req.param('id')},function(err,camera){
