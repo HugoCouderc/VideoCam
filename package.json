@@ -27,6 +27,7 @@
     "passport-jwt": "^2.1.0",
     "passport-local": "^1.0.0",
     "rc": "1.0.1",
+    "request": "^2.78.0",
     "sails": "~0.12.7",
     "sails-disk": "~0.10.9",
     "sails-hook-autoreload": "^0.13.2",

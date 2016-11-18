@@ -64,9 +64,10 @@ module.exports = {
 	},
 
 	changeAngle: function(req,res){
+		var http=require('request');
 		Camera.findOne({id:req.param('id')},function(err,camera){
 			if(err){console.log(err);}
-				$http.post(camera.adress,req.param('angle')).then(function(res){
+				http.post(camera.adress,req.param('angle')).then(function(res){
 					Camera.update({id:req.param('id')},{angle:res.angle}).exec(function afterwards(err,updated){
 						if(err)
 						{
