@@ -64,24 +64,26 @@ module.exports = {
 	},
 
 	changeAngle: function(req,res){
-		if(req.param('angle')<=180 || req.param('angle')>=0){
-			Camera.findOne({id:req.param('id')},function(err,camera){
-				
-				if(err){console.log(err);}
-				Camera.update({id:req.param('id')},{angle:req.param('angle')}).exec(function afterwards(err,updated){
-					if(err)
-					{
-						console.log("problem on camera angle update");
-						return;
-					}
-					console.log(camera.angle);
-					return res.ok();
+		Camera.findOne({id:req.param('id')},function(err,camera){
+			if(err){console.log(err);}
+				$http.post(req.param('adress'),req.param('angle')).then(function(res){
+					Camera.update({id:req.param('id')},{angle:res.angle}).exec(function afterwards(err,updated){
+						if(err)
+						{
+							console.log("problem on camera angle update");
+							return;
+						}
+						console.log(camera.angle);
+						return res.ok();
+						})
 					})
 				}
-			);
+
+				
+		)
 			
 				
-		}
+		
 	}
 
 };
