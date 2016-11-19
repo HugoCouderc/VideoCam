@@ -1,3 +1,5 @@
-# CatapuleCam
-
-a [Sails](http://sailsjs.org) application
+Groupe 6
+Hugo Couderc
+David Boudat
+Gael Coudurier Curveur
+Maxime Soubiran
