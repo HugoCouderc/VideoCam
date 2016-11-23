@@ -22,6 +22,7 @@ module.exports.policies = {
 		'*' : true
 	},
 	ViewController : {
-		'*' : true
+		'*' : [ 'isAuthenticated' ],
+		homepageView : true
 	}
 };

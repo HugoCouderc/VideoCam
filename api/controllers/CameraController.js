@@ -59,7 +59,7 @@ module.exports = {
  	myCamRightsView : function(req, res) {
  		Camera.find({owner: req.user.id}, function (err, list) {
  			console.log(list);
- 			return res.view('personalcameras', {cameras : list});
+ 			return res.view('personalcameras', {cameras : list, user : req.user});
  		});
 	},
 

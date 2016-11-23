@@ -41,10 +41,11 @@
 				<% if (user) { %>
 				<ul class="nav navbar-nav">
 					<li><a href="/cameras">Mes caméras</a></li>
+					<li><a href="/addCamera">Ajouter une camera</a></li>
 				</ul>
 				<div class="nav navbar-nav navbar-right">
-					<button type="button" class="btn btn-default navbar-btn">Se
-						déconnecter</button>
+					<a type="button" class="btn btn-default navbar-btn" href="/auth/signout">Se
+						déconnecter</a>
 				</div>
 				<%} else { %>
 				<div class="nav navbar-nav navbar-right">
@@ -169,6 +170,7 @@
 				}
 			});
 		});
+		
 	});
 	
 	angular.module('Thisapp', [])
