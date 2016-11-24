@@ -51,6 +51,8 @@
    		$scope.send=function(camera){
 			console.log(camera);
 			camera.angle=90;
+			camera.owner=1;
+			console.log(camera);
 			$http.post("http://localhost:1337/camera",$scope.camera);
 			};
 
